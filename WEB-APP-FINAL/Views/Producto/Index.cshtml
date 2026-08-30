@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WEB_APP_FINAL.Models.Producto>
+
+@{
+    ViewData["Title"] = "Producto";
+}
+
+<body>
+    <h2>Products</h2>
+
+    <a asp-controller="Producto" asp-action="Create" class="btn" style="background-color:transparent; border-radius: 5px">New Product➕</a>
+    <a asp-controller="Tarea" asp-action="Create" class="btn" style="background-color:transparent; border-radius: 5px">New Task➕</a>
+
+    <div class="container">
+        <div class="box">
+            @foreach (var producto in Model)
+            {
+
+                <div class="card" style="background:none; margin:10px">
+
+                    <!--Details-->
+                    <div class="card-body collapse d-sm-inline-flex justify-content-between">
+                        <div>
+                            <p>Name</p>
+                            <p class="" style="margin-inline-end:10px">@producto.Name</p>
+                        </div>
+                        <div>
+                            <p>Price</p>
+                            <p class="" style="margin-inline-end:10px">@producto.Price $</p>
+
+                        </div>
+                        <div>
+                            <p>Stock</p>
+                            <p class="" style="margin-inline-end:10px">@producto.Stock</p>
+
+                        </div>
+                    </div>
+                    <!--Actions-->
+                    <div style="margin:10px">
+                        <a asp-action="Detail" asp-route-id="@producto.Id" class="btn btn-sm" style="background-color:transparent; border-radius: 5px; -webkit-text-fill-color:greenyellow">➕</a>
+                        <a asp-action="Edit" asp-route-id="@producto.Id" class="btn btn-warning btn-sm" style="background-color:#ffc107; border-radius: 5px">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@producto.Id" class="btn btn-sm" style="background-color:#ffc107; border-radius: 5px">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

@@ -1,0 +1,45 @@
+﻿@model WEB_APP_FINAL.Models.Tarea
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<body>
+    <h2> @ViewData["Title"] </h2>
+    <div style="glyph-orientation-horizontal:inherit; width:max-content" class=" collapse d-sm-inline-flex justify-content-between">
+
+        <form asp-action="Edit" method="post">
+            <div class="Form-row">
+                <h5 style="margin-inline-start:50px">Edit item</h5>
+
+                <div class="model-footer align-content-center" style="margin-inline-start:50px">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+                <div style="width:800px; margin-inline-start:50px">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input asp-for="Description" type="text" class="form-control" style="background-color:dimgrey" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="datetime-local" asp-for="Date" class="form-control" style="background-color:dimgrey" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="checkbox" asp-for="Done" style="background-color: dimgrey; outline:none; vertical-align:central" class="form-check-input" />
+                    </div>
+                    <div class="form-group">
+                        <label>Producto</label>
+                        <select asp-for="ProductoId" asp-items="@(ViewData["Producto"] as SelectList)" class="form-control" placeholder="Producto"
+                                style="background-color: dimgrey; outline:none; margin-bottom: 10px; margin-inline-end:10px; text-align: center; width: 228px"></select>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </form>
+    </div>
+</body>

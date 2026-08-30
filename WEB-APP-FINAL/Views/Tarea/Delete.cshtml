@@ -1,0 +1,38 @@
+﻿@model WEB_APP_FINAL.Models.Tarea
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<body>
+    <h2 style="-webkit-text-fill-color: red; text-align:center; margin-bottom:30px">You are about to delete this task! Are you sure about that?</h2>
+    <div>
+        <div class=" collapse d-sm-inline-flex justify-content-between" style="glyph-orientation-horizontal: inherit">
+            <div class="col-md-5" style="margin-inline-start:50px; font-size:30px; width:600px; margin-bottom:50px;">
+
+                <label>Name</label>
+
+                <div style="margin-inline-end:20px; background-color:dimgrey; border-radius:10px; border-color:white; border-width:10px; margin-bottom:50px;">
+
+                    <p>@Model.Description</p>
+                </div>
+                <label>Date</label>
+
+                <div style="margin-inline-end:20px; background-color:dimgrey; border-radius:10px; border-color:white; border-width:10px; margin-bottom:50px;">
+
+                    <p>@Model.Date</p>
+                </div>
+                <label>Status</label>
+
+                <div style="margin-inline-end:20px; background-color:dimgrey; border-radius:10px; border-color:white; border-width:10px; margin-bottom:50px;">
+
+                    <p>@Model.Done</p>
+                </div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

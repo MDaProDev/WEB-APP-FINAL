@@ -1,0 +1,46 @@
+﻿@model Producto
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<body>
+    
+        <div class=" collapse d-sm-inline-flex justify-content-between" style="glyph-orientation-horizontal: inherit">
+            <div class="col-md-5" style="margin-inline-start:50px; font-size:30px; width:600px; margin-bottom:50px;">
+                <h5>@ViewData["Title"]</h5>
+
+
+                <label>Price</label>
+
+                <div style="margin-inline-end:20px; background-color:lightgrey; border-radius:10px; border-color:white; border-width:10px; margin-bottom:50px">
+
+                    <p>@Model.Price $</p>
+                </div>
+                <label>Stock</label>
+
+                <div style="margin-inline-end:20px; background-color:lightgrey; border-radius:10px; border-color:white; border-width:10px">
+                    <p>@Model.Stock</p>
+                </div>
+
+            </div>
+
+
+           
+            <div>
+                <h5>Tasks</h5>
+                <a asp-controller="Tarea" asp-action="Create" class="btn" style="background-color:transparent; border-radius: 5px">New Task➕</a>            
+                
+                <!--Find a way to display the tasks-->
+            @* @foreach(var tarea in Model.Tareas)
+            {
+                <p>@tarea.Description</p>
+                <p>@tarea.Date</p>
+                <p>@tarea.Done</p>
+            } *@
+
+            </div>
+            
+        </div>
+    
+</body>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WEB_APP_FINAL.Models.Tarea>
+
+@{    
+    ViewData["Title"] = "Tarea";
+}
+
+<a asp-controller="Tarea" asp-action="Create" class="btn" style="background-color:transparent; border-radius: 5px">New Task➕</a>
+
+<body>
+    
+    <div class="container">
+        <div class="box">
+            @foreach (var tarea in Model)
+            {
+
+                <div class="card" style="background:none; margin:10px">
+
+                    <!--Details-->
+                    <div class="card-body collapse d-sm-inline-flex justify-content-between">
+                        <div>
+                            <label>Task</label>
+                            <div class="overflow-auto" style="max-width: 300px; width:300px; height:100px; max-height:100px">
+
+                                <p style="margin-inline-end:10px">@tarea.Description</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label>Date</label>
+                            <div class="overflow-auto" style="max-width: 200px; width:200px">
+
+                                <p style="margin-inline-end:10px">@tarea.Date </p>
+
+                            </div>
+                        </div>
+                        <div>
+                            <label>Status</label>
+                            <div class="overflow-auto" style="max-width: 200px; width:200px">
+
+                                <p style="margin-inline-end:10px">@tarea.Done</p>
+
+                            </div>
+                        </div>
+                        <div>
+                            <label>Product</label>
+                            <div class="overflow-auto" style="max-width: 200px; width:200px">
+
+                                <p style="margin-inline-end:10px">@tarea.Producto.Name</p>
+
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    <!--Actions-->
+                    <div style="margin:10px">
+                        <a asp-action="Edit" asp-route-id="@tarea.Id" class="btn btn-warning btn-sm" style="background-color:#ffc107; border-radius: 5px">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@tarea.Id" class="btn btn-sm" style="background-color:#ffc107; border-radius: 5px">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
