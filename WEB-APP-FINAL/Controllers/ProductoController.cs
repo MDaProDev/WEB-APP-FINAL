@@ -57,6 +57,7 @@ namespace WEB_APP_FINAL.Controllers
         {
             if (Id != producto.Id) return NotFound();
             if (ModelState.IsValid)
+            if (producto.Price<0.0)
             {
                 try
                 {
